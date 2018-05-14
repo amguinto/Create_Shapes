@@ -43,8 +43,8 @@ const GLchar* fragmentShaderSrc =
 "}";
 
 
-//Called whenever a key is hit.
-void glfw_keyboard_input ( GLFWwindow* window, int key, int scan_code, int action, int mode );
+//Hardware Input
+void glfw_keyboard_mouse_input ( GLFWwindow* window, int key, int scan_code, int action, int mode );
 
 //FPS Check.
 void showFPS ( GLFWwindow* window );
@@ -228,7 +228,7 @@ End Main
 -----------------------------------------------------------------------------
 */
 
-void glfw_keyboard_input ( GLFWwindow* window, int key, int scan_code, int action, int mode )
+void glfw_keyboard_mouse_input ( GLFWwindow* window, int key, int scan_code, int action, int mode )
 {	
 	//Close application.
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
@@ -247,6 +247,11 @@ void glfw_keyboard_input ( GLFWwindow* window, int key, int scan_code, int actio
 			glPolygonMode ( GL_FRONT_AND_BACK, GL_FILL );
 		}
 	}
+	if (key == GLFW_MOUSE_BUTTON_1 && action == GLFW_MOUSE_BUTTON_1)
+	{
+		glfwSetWindowShouldClose ( window, GL_TRUE );
+	}
+	
 }
 
 void showFPS ( GLFWwindow* window )
@@ -327,7 +332,7 @@ bool initOpenGL ()
 	glfwMakeContextCurrent ( gWindow );
 
 	//Keyboard Input.
-	glfwSetKeyCallback ( gWindow, glfw_keyboard_input );
+	glfwSetKeyCallback ( gWindow, glfw_keyboard_mouse_input );
 
 
 	//Used to set up GLEW.
