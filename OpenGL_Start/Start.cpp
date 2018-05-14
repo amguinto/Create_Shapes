@@ -1,3 +1,7 @@
+/*
+Andy Matthew Guinto
+*/
+
 //To draw, create a buffer in GPU memory for the mesh
 //Fill the buffer with mesh data (vertices)
 //Create shaders for knowing how to draw your mesh
@@ -46,7 +50,6 @@ void glfw_keyboard_input ( GLFWwindow* window, int key, int scan_code, int actio
 void showFPS ( GLFWwindow* window );
 
 bool initOpenGL ();
-
 
 /*
 -----------------------------------------------------------------------------
